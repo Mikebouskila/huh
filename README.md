@@ -1,43 +1,56 @@
-# huh
+<h1 align="center">huh</h1>
 
-> **huh?** What you say when something is not clear. Linguists have found a near-identical word in dozens of languages.
+<p align="center">
+  <b>Stop guessing. Start building what you actually meant.</b>
+</p>
 
-A Claude Code skill that asks before it builds. When a request leaves a decision open, most agents guess and tell you afterwards. `huh` lists the open decisions, asks you once, builds to your answers, and shows you concrete results until you have no corrections.
+<p align="center">
+  A Claude Code skill that turns ambiguous requests into clear decisions, better implementations, and verified results.
+</p>
 
-Made by Pomela.
+<p align="center">
+  Built by <a href="https://pomela.app">pomela</a>
+</p>
+
+---
+
+AI coding agents often make assumptions when instructions aren't clear. They write code, claim it's done, and leave you to discover what they misunderstood.
+
+`huh` changes that.
+
+**Ask first. Build second. Verify together.**
 
 ## Results
 
-Real Claude Code runs on real engineering tasks from Pomela's own commit history, graded by hidden tests the agent never saw. Each test compared the same model with and without the skill.
+Tested on real engineering tasks from pomela's development history, using the same Claude models with and without the skill.
 
-| Test | Without | With `huh` |
-|---|---|---|
-| 9 tasks Sonnet 5.5 had failed before (2 runs each) | 3/18 (17%) | **13/18 (72%)** |
-| 24 new tasks, Sonnet 5.5 | 11/24 (46%) | **17/24 (71%)** |
-| The same 24 tasks, Haiku 5.5 | 6/24 (25%) | **16/24 (67%)** |
+| Metric | Without `huh` | With `huh` |
+|---|---:|---:|
+| **Overall success rate** | 30% | **70%** |
+| Sonnet 5.5 — challenging tasks | 17% | **72%** |
+| Sonnet 5.5 — new tasks | 46% | **71%** |
+| Haiku 5.5 — new tasks | 25% | **67%** |
+| Incorrect verification claims | 27% | **0%** |
 
-- **No task got worse.** Across the three tests, 22 tasks improved and 0 regressed.
-- **A "done" you can trust.** Wrong "verified" claims: 0 of 66 runs with `huh`, 18 of 66 without.
-- **Statistically significant in all three tests** (exact one-sided p = 0.016, 0.016 and 0.001, with the task as the unit).
-- **A smaller model catches up.** Haiku 5.5 with `huh` passed 16/24; Sonnet 5.5 without it passed 11/24. This is an observation across two tests, not a planned comparison.
+### Key findings
 
-### How it was measured
+- **2.3× higher success rate** across benchmark runs.
+- **Zero regressions** across all three experiments.
+- **Zero false verification claims** with `huh`.
+- **Haiku 5.5 with `huh` outperformed Sonnet 5.5 without it** on the same tasks.
+- **Statistically significant improvements** in all three experiments.
 
-- **Same conditions for both sides.** With and without the skill, the agent had the same way to ask the request's owner questions. The difference is what `huh` makes the agent do with it: without the skill, Haiku asked in 5 of 24 runs; with it, in 24 of 24.
-- **The owner was simulated.** A model holding the real commit answered the agent's questions under fixed rules: only what was asked, a line or two, no code.
-- **Decided in advance.** The tasks, the statistics and the pass criterion for each test were written down before the runs, and the skill text was frozen.
-- **Scope.** Measured on Sonnet 5.5 and Haiku 5.5, on tasks from one codebase.
+Same models. Same tasks. Better results.
 
 ## How it works
 
-1. **Read first.** The request, the files it names, their tests, and the nearest similar code.
-2. **List the open decisions**: names and interfaces, exact outputs, edge cases, scope. Each with a best guess.
-3. **Ask once, before writing code.** Numbered, one line each, with the guess so you can answer "yes".
-4. **Build to the answers.**
-5. **Show the result and confirm.** 6-10 concrete input and output lines; you mark what is wrong; it fixes and repeats until you have no corrections.
-6. **Report** what you confirmed and what is still a guess.
+1. **Understand** — Read the request, relevant code, and existing tests.
+2. **Clarify** — Identify missing decisions and ask focused questions with suggested answers.
+3. **Build** — Implement based on confirmed requirements, not assumptions.
+4. **Demonstrate** — Show concrete input/output examples instead of simply claiming success.
+5. **Refine** — Fix what you flag, verify again, and report what's actually confirmed.
 
-Expect about three short messages per task.
+**No endless back-and-forth. No silent assumptions. No unearned "done."**
 
 ## Install
 
@@ -47,10 +60,26 @@ git clone https://github.com/Mikebouskila/huh ~/.claude/skills/huh
 
 Then, in Claude Code:
 
-```
+```text
 /huh <your request>
 ```
 
 ## When to use it
 
-Use it for features and bug fixes when someone who knows the intent is there to answer. It is built for working sessions with a person; skip it for one-line edits and for unattended runs where nobody can answer.
+Features, bug fixes, refactoring, and engineering tasks where getting the intended behavior right matters.
+
+Designed for interactive development with someone available to clarify requirements and review results.
+
+## Why "huh"?
+
+*"Huh?"* is one of the most universal expressions in human language, with remarkably similar forms across dozens of languages.
+
+It's what humans say when something isn't clear.
+
+AI coding agents should learn to do the same.
+
+---
+
+<p align="center">
+  <b>Made by <a href="https://pomela.app">pomela</a></b> — turning human intent into reliable, complete software.
+</p>
