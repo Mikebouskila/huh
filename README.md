@@ -8,10 +8,6 @@
   A Claude Code skill that turns ambiguous requests into clear decisions, better implementations, and verified results.
 </p>
 
-<p align="center">
-  Built by <a href="https://pomela.app">pomela</a>
-</p>
-
 ---
 
 AI coding agents often make assumptions when instructions aren't clear. They write code, claim it's done, and leave you to discover what they misunderstood.
@@ -22,7 +18,7 @@ AI coding agents often make assumptions when instructions aren't clear. They wri
 
 ## Results
 
-Tested on real engineering tasks from pomela's development history, using the same Claude models with and without the skill.
+Tested on real engineering tasks from a production codebase's development history, using the same Claude models with and without the skill.
 
 | Metric | Without `huh` | With `huh` |
 |---|---:|---:|
@@ -77,9 +73,3 @@ Designed for interactive development with someone available to clarify requireme
 It's what humans say when something isn't clear.
 
 AI coding agents should learn to do the same.
-
----
-
-<p align="center">
-  <b>Made by <a href="https://pomela.app">pomela</a></b> — turning human intent into reliable, complete software.
-</p>
